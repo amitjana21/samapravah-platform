@@ -1,0 +1,7 @@
+<?xml version='1.0' encoding='utf-8'?>
+<resources>
+    <string name="app_name">Sama Pravah</string>
+    <string name="title_activity_main">Sama Pravah</string>
+    <string name="package_name">in.samapravah.app</string>
+    <string name="custom_url_scheme">in.samapravah.app</string>
+</resources>
