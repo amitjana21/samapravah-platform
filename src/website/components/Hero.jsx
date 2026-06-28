@@ -6,8 +6,9 @@ export default function Hero({ onBookService, onTrackBooking }) {
     <>
       {/* HERO SECTION */}
       <section
+        className="website-fade-in"
         style={{
-          padding: "80px 20px",
+          padding: "90px 20px",
           textAlign: "center",
           background: "linear-gradient(135deg,#2563eb,#0ea5e9)",
           color: "#fff",
@@ -24,6 +25,7 @@ export default function Hero({ onBookService, onTrackBooking }) {
         />
 
         <h1
+          className="website-hero-title"
           style={{
             fontSize: "48px",
             marginBottom: "20px",
@@ -39,6 +41,7 @@ export default function Hero({ onBookService, onTrackBooking }) {
 
         <div style={{ display: "flex", gap: "15px", justifyContent: "center", flexWrap: "wrap" }}>
           <button
+            className="website-action-hover"
             onClick={onBookService}
             style={{
               padding: "14px 24px",
@@ -54,6 +57,7 @@ export default function Hero({ onBookService, onTrackBooking }) {
           </button>
 
           <button
+            className="website-action-hover"
             onClick={onTrackBooking}
             style={{
               padding: "14px 24px",
@@ -69,6 +73,7 @@ export default function Hero({ onBookService, onTrackBooking }) {
           </button>
 
           <a
+            className="website-action-hover"
             href="https://wa.me/918777732521"
             target="_blank"
             rel="noreferrer"

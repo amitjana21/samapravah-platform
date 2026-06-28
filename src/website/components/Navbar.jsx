@@ -67,15 +67,18 @@ export default function Navbar() {
           </div>
 
           <nav
+            className="website-desktop-nav"
             style={{
               display: "flex",
               gap: "24px",
             }}
           >
-            <a href="#services" style={{ textDecoration: "none", color: "#475569", fontWeight: "600" }}>Services</a>
-            <a href="#whyus" style={{ textDecoration: "none", color: "#475569", fontWeight: "600" }}>Why Us</a>
-            <a href="#areas" style={{ textDecoration: "none", color: "#475569", fontWeight: "600" }}>Areas</a>
-            <a href="#contact" style={{ textDecoration: "none", color: "#475569", fontWeight: "600" }}>Contact</a>
+            <a className="website-link-hover" href="#services" style={{ textDecoration: "none", color: "#475569", fontWeight: "600" }}>Services</a>
+            <a className="website-link-hover" href="#about" style={{ textDecoration: "none", color: "#475569", fontWeight: "600" }}>About</a>
+            <a className="website-link-hover" href="#whyus" style={{ textDecoration: "none", color: "#475569", fontWeight: "600" }}>Why Us</a>
+            <a className="website-link-hover" href="#areas" style={{ textDecoration: "none", color: "#475569", fontWeight: "600" }}>Areas</a>
+            <a className="website-link-hover" href="#faq" style={{ textDecoration: "none", color: "#475569", fontWeight: "600" }}>FAQ</a>
+            <a className="website-link-hover" href="#contact" style={{ textDecoration: "none", color: "#475569", fontWeight: "600" }}>Contact</a>
           </nav>
         </div>
       </header>

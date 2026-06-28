@@ -1,70 +1,35 @@
+import FAQAccordion from "./FAQAccordion";
+
 export default function Footer() {
+  const services = [
+    "Electrical",
+    "Plumbing",
+    "AC Repair",
+    "Cleaning",
+    "Carpenter",
+    "CCTV",
+  ];
+
+  const areas = [
+    "Lake Town",
+    "Salt Lake",
+    "New Town",
+    "Bangur",
+    "Dum Dum",
+    "Baguiati",
+  ];
+
   return (
     <>
-      {/* FAQ SECTION */}
-      <section
-        style={{
-          padding: "70px 20px",
-          background: "#ffffff",
-        }}
-      >
-        <h2
-          style={{
-            textAlign: "center",
-            marginBottom: "40px",
-          }}
-        >
-          Frequently Asked Questions
-        </h2>
+      <FAQAccordion />
 
-        <div
-          style={{
-            maxWidth: "900px",
-            margin: "0 auto",
-          }}
-        >
-          {[
-            [
-              "How quickly can a technician arrive?",
-              "Usually within the same day depending on availability.",
-            ],
-            [
-              "Do you provide service warranty?",
-              "Yes, selected services include warranty support.",
-            ],
-            [
-              "What payment methods are accepted?",
-              "Cash, UPI, Google Pay, PhonePe and Paytm.",
-            ],
-            [
-              "Which areas do you serve?",
-              "Lake Town, Salt Lake, New Town, Dum Dum, Bangur and nearby areas.",
-            ],
-          ].map(([q, a]) => (
-            <div
-              key={q}
-              style={{
-                marginBottom: "24px",
-                padding: "20px",
-                background: "#f8fafc",
-                borderRadius: "12px",
-              }}
-            >
-              <strong>{q}</strong>
-
-              <p style={{ marginTop: "10px" }}>{a}</p>
-            </div>
-          ))}
-        </div>
-      </section>
-
-      {/* STEP 7 — Launch Ready Footer */}
       <footer
         id="contact"
+        className="website-fade-in"
         style={{
           background: "#0f172a",
           color: "#fff",
-          padding: "60px 20px",
+          padding: "70px 20px 28px",
         }}
       >
         <div
@@ -72,37 +37,99 @@ export default function Footer() {
             maxWidth: "1200px",
             margin: "0 auto",
             display: "grid",
-            gridTemplateColumns:
-              "repeat(auto-fit,minmax(250px,1fr))",
-            gap: "30px",
+            gridTemplateColumns: "repeat(auto-fit,minmax(220px,1fr))",
+            gap: "34px",
           }}
         >
           <div>
-            <h3>Sama Pravah</h3>
-            <p>
-              Trusted Home Services At Your
-              Doorstep.
+            <h3
+              style={{
+                marginTop: 0,
+                fontSize: "24px",
+              }}
+            >
+              Sama Pravah
+            </h3>
+            <p
+              style={{
+                color: "#cbd5e1",
+                lineHeight: "1.8",
+                marginBottom: "18px",
+              }}
+            >
+              A trusted home services company providing verified technicians
+              for everyday repair, maintenance, and installation needs.
             </p>
+
+            <div
+              style={{
+                display: "flex",
+                gap: "10px",
+                flexWrap: "wrap",
+              }}
+            >
+              {["Facebook", "Instagram", "YouTube"].map((item) => (
+                <span
+                  key={item}
+                  style={{
+                    border: "1px solid rgba(255,255,255,0.18)",
+                    borderRadius: "999px",
+                    padding: "8px 12px",
+                    color: "#cbd5e1",
+                    fontSize: "13px",
+                  }}
+                >
+                  {item}
+                </span>
+              ))}
+            </div>
           </div>
 
           <div>
-            <h4>Contact</h4>
-            <p>📞 8777732521</p>
-            <p>📧 info@samapravah.com</p>
+            <h4 style={{ marginTop: 0 }}>Services</h4>
+            {services.map((service) => (
+              <p
+                key={service}
+                style={{
+                  color: "#cbd5e1",
+                  margin: "10px 0",
+                }}
+              >
+                {service}
+              </p>
+            ))}
           </div>
 
           <div>
-            <h4>Coverage Areas</h4>
-            <p>Lake Town</p>
-            <p>Salt Lake</p>
-            <p>New Town</p>
-            <p>Dum Dum</p>
+            <h4 style={{ marginTop: 0 }}>Service Areas</h4>
+            {areas.map((area) => (
+              <p
+                key={area}
+                style={{
+                  color: "#cbd5e1",
+                  margin: "10px 0",
+                }}
+              >
+                {area}
+              </p>
+            ))}
+          </div>
+
+          <div>
+            <h4 style={{ marginTop: 0 }}>Contact Information</h4>
+            <p style={{ color: "#cbd5e1" }}>📞 8777732521</p>
+            <p style={{ color: "#cbd5e1" }}>📧 info@samapravah.com</p>
+            <p style={{ color: "#cbd5e1", lineHeight: "1.7" }}>
+              Serving Kolkata, North Kolkata, Salt Lake, New Town, and nearby
+              localities.
+            </p>
           </div>
         </div>
 
         <hr
           style={{
-            margin: "30px 0",
+            maxWidth: "1200px",
+            margin: "36px auto 24px",
             opacity: 0.2,
           }}
         />
@@ -110,33 +137,13 @@ export default function Footer() {
         <p
           style={{
             textAlign: "center",
+            color: "#cbd5e1",
+            margin: 0,
           }}
         >
-          © {new Date().getFullYear()} Sama Pravah
+          © {new Date().getFullYear()} Sama Pravah. All rights reserved.
         </p>
       </footer>
-
-      {/* STEP 4 — Floating WhatsApp Button (Updated with instruction styling) */}
-      <a
-        href="https://wa.me/918777732521"
-        target="_blank"
-        rel="noreferrer"
-        style={{
-          position: "fixed",
-          bottom: "30px",
-          right: "30px",
-          background: "#25D366",
-          color: "#fff",
-          padding: "16px 22px",
-          borderRadius: "50px",
-          textDecoration: "none",
-          fontWeight: "700",
-          zIndex: 9999,
-          boxShadow: "0 4px 12px rgba(0,0,0,0.25)",
-        }}
-      >
-        💬 WhatsApp
-      </a>
     </>
   );
 }

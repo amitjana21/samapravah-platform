@@ -2,6 +2,7 @@ export default function ServicesSection({ onBookService }) {
   return (
     <section
       id="services"
+      className="website-fade-in"
       style={{
         padding: "70px 20px",
         textAlign: "center",
@@ -30,14 +31,15 @@ export default function ServicesSection({ onBookService }) {
         ].map((service) => (
           <div
             key={service}
+            className="website-card-hover"
             onClick={onBookService}
             style={{
               background: "#fff",
               padding: "25px",
               borderRadius: "16px",
+              border: "1px solid #e2e8f0",
               boxShadow: "0 2px 12px rgba(0,0,0,0.08)",
               cursor: "pointer",
-              transition: "0.3s",
             }}
           >
             <h3 style={{ fontSize: "20px", marginBottom: "10px" }}>

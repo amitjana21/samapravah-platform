@@ -2,6 +2,7 @@ export default function ServiceAreas() {
   return (
     <section
       id="areas"
+      className="website-fade-in"
       style={{
         padding: "70px 20px",
         textAlign: "center",
@@ -30,10 +31,12 @@ export default function ServiceAreas() {
         ].map((area) => (
           <div
             key={area}
+            className="website-card-hover"
             style={{
               background: "#fff",
               padding: "18px",
               borderRadius: "12px",
+              border: "1px solid #e2e8f0",
               boxShadow: "0 2px 8px rgba(0,0,0,0.06)",
             }}
           >
