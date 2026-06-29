@@ -77,7 +77,7 @@ export default function FAQAccordion() {
           return (
             <div
               key={question}
-              className="website-card-hover website-faq-item"
+              className="website-card-hover"
               style={{
                 background: "#f8fafc",
                 border: "1px solid #e2e8f0",
@@ -90,7 +90,6 @@ export default function FAQAccordion() {
                 onClick={() => setOpenIndex(isOpen ? -1 : index)}
                 aria-expanded={isOpen}
                 aria-controls={`faq-panel-${index}`}
-                id={`faq-button-${index}`}
                 style={{
                   width: "100%",
                   border: "none",
@@ -119,17 +118,9 @@ export default function FAQAccordion() {
                 </span>
               </button>
 
-              <div
-                id={`faq-panel-${index}`}
-                role="region"
-                aria-labelledby={`faq-button-${index}`}
-                style={{
-                  maxHeight: isOpen ? "160px" : 0,
-                  overflow: "hidden",
-                  transition: "max-height 0.25s ease",
-                }}
-              >
+              {isOpen && (
                 <p
+                  id={`faq-panel-${index}`}
                   style={{
                     margin: 0,
                     padding: "0 20px 20px",
@@ -139,7 +130,7 @@ export default function FAQAccordion() {
                 >
                   {answer}
                 </p>
-              </div>
+              )}
             </div>
           );
         })}

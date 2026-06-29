@@ -32,7 +32,7 @@ export default function FloatingActions() {
       }}
     >
       <a
-        className="website-action-hover website-floating-pulse"
+        className="website-action-hover"
         href={getWhatsAppUrl(WHATSAPP_NUMBER)}
         target="_blank"
         rel="noreferrer"
@@ -46,7 +46,7 @@ export default function FloatingActions() {
       </a>
 
       <a
-        className="website-action-hover website-floating-pulse"
+        className="website-action-hover"
         href={getTelUrl(PHONE)}
         aria-label="Call Sama Pravah"
         style={{
