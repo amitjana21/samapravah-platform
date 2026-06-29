@@ -37,6 +37,21 @@ export default function WebsiteStyles() {
           box-shadow: 0 12px 24px rgba(15, 23, 42, 0.22) !important;
         }
 
+        .website-floating-pulse {
+          animation: websitePulse 2.6s ease-in-out infinite;
+        }
+
+        .website-image-skeleton {
+          background: linear-gradient(90deg, #e2e8f0 0%, #f8fafc 50%, #e2e8f0 100%);
+          background-size: 200% 100%;
+          animation: websiteSkeleton 1.2s ease-in-out infinite;
+        }
+
+        .website-faq-item:focus-within {
+          border-color: rgba(37, 99, 235, 0.45) !important;
+          box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.12) !important;
+        }
+
         @keyframes websiteFadeIn {
           from {
             opacity: 0;
@@ -45,6 +60,24 @@ export default function WebsiteStyles() {
           to {
             opacity: 1;
             transform: translateY(0);
+          }
+        }
+
+        @keyframes websitePulse {
+          0%, 100% {
+            transform: scale(1);
+          }
+          50% {
+            transform: scale(1.05);
+          }
+        }
+
+        @keyframes websiteSkeleton {
+          from {
+            background-position: 200% 0;
+          }
+          to {
+            background-position: -200% 0;
           }
         }
 

@@ -1,5 +1,3 @@
-import { STARTING_PRICES } from "../../constants/services";
-
 export default function WhyChooseUs() {
   return (
     <>
@@ -45,57 +43,6 @@ export default function WhyChooseUs() {
             >
               <h3 style={{ color: "#2563eb" }}>✓</h3>
               <p style={{ fontWeight: "600" }}>{item}</p>
-            </div>
-          ))}
-        </div>
-      </section>
-
-      {/* PRICING SECTION */}
-      <section
-        className="website-fade-in"
-        style={{
-          padding: "70px 20px",
-          background: "#ffffff",
-          textAlign: "center",
-        }}
-      >
-        <h2>Starting Prices</h2>
-
-        <div
-          style={{
-            maxWidth: "1100px",
-            margin: "40px auto",
-            display: "grid",
-            gridTemplateColumns: "repeat(auto-fit,minmax(220px,1fr))",
-            gap: "20px",
-          }}
-        >
-          {STARTING_PRICES.map(([service, price]) => (
-            <div
-              key={service}
-              className="website-card-hover"
-              style={{
-                background: "#f8fafc",
-                padding: "24px",
-                borderRadius: "16px",
-                border: "1px solid #e2e8f0",
-                boxShadow: "0 2px 10px rgba(0,0,0,0.08)",
-              }}
-            >
-              <h3>{service}</h3>
-
-              <div
-                style={{
-                  fontSize: "32px",
-                  fontWeight: "700",
-                  color: "#2563eb",
-                  marginTop: "10px",
-                }}
-              >
-                {price}
-              </div>
-
-              <p style={{ color: "#64748b" }}>Starting Price</p>
             </div>
           ))}
         </div>
