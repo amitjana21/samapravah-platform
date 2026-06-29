@@ -1,3 +1,5 @@
+import { SERVICE_ICON_MAP, WEBSITE_SERVICES } from "../../constants/services";
+
 export default function ServicesSection({ onBookService }) {
   return (
     <section
@@ -19,20 +21,20 @@ export default function ServicesSection({ onBookService }) {
           margin: "40px auto",
         }}
       >
-        {[
-          "Electrical",
-          "Plumbing",
-          "AC Repair",
-          "Cleaning",
-          "Carpenter",
-          "CCTV",
-          "Fridge Repair",
-          "Washing Machine",
-        ].map((service) => (
+        {WEBSITE_SERVICES.map((service) => (
           <div
             key={service}
             className="website-card-hover"
             onClick={onBookService}
+            onKeyDown={(event) => {
+              if (event.key === "Enter" || event.key === " ") {
+                event.preventDefault();
+                onBookService();
+              }
+            }}
+            role="button"
+            tabIndex={0}
+            aria-label={`Book ${service} service`}
             style={{
               background: "#fff",
               padding: "25px",
@@ -43,18 +45,7 @@ export default function ServicesSection({ onBookService }) {
             }}
           >
             <h3 style={{ fontSize: "20px", marginBottom: "10px" }}>
-              {
-                {
-                  Electrical: "⚡",
-                  Plumbing: "🚰",
-                  "AC Repair": "❄️",
-                  Cleaning: "🧹",
-                  Carpenter: "🪚",
-                  CCTV: "📹",
-                  "Fridge Repair": "🧊",
-                  "Washing Machine": "🧺",
-                }[service]
-              }
+              {SERVICE_ICON_MAP[service]}
             </h3>
             <p style={{ fontWeight: "600" }}>{service}</p>
           </div>

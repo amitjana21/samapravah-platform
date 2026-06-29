@@ -1,3 +1,5 @@
+import { SERVICE_AREAS } from "../../constants/areas";
+
 export default function ServiceAreas() {
   return (
     <section
@@ -19,16 +21,7 @@ export default function ServiceAreas() {
           gap: "16px",
         }}
       >
-        {[
-          "Lake Town",
-          "Bangur",
-          "Salt Lake",
-          "New Town",
-          "Baguiati",
-          "Dum Dum",
-          "Kestopur",
-          "Nagerbazar",
-        ].map((area) => (
+        {SERVICE_AREAS.map((area) => (
           <div
             key={area}
             className="website-card-hover"

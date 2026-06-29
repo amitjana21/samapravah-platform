@@ -1,24 +1,16 @@
+import {
+  COMPANY_ADDRESS,
+  COMPANY_NAME,
+  EMAIL,
+  PHONE,
+  SOCIAL_MEDIA_URLS,
+} from "../../config/appConfig";
+import { FEATURED_SERVICE_AREAS } from "../../constants/areas";
+import { FEATURED_SERVICES } from "../../constants/services";
+import { formatPhone } from "../../utils/formatPhone";
 import FAQAccordion from "./FAQAccordion";
 
 export default function Footer() {
-  const services = [
-    "Electrical",
-    "Plumbing",
-    "AC Repair",
-    "Cleaning",
-    "Carpenter",
-    "CCTV",
-  ];
-
-  const areas = [
-    "Lake Town",
-    "Salt Lake",
-    "New Town",
-    "Bangur",
-    "Dum Dum",
-    "Baguiati",
-  ];
-
   return (
     <>
       <FAQAccordion />
@@ -48,7 +40,7 @@ export default function Footer() {
                 fontSize: "24px",
               }}
             >
-              Sama Pravah
+              {COMPANY_NAME}
             </h3>
             <p
               style={{
@@ -68,26 +60,30 @@ export default function Footer() {
                 flexWrap: "wrap",
               }}
             >
-              {["Facebook", "Instagram", "YouTube"].map((item) => (
-                <span
-                  key={item}
+              {Object.entries(SOCIAL_MEDIA_URLS).map(([name, url]) => (
+                <a
+                  key={name}
+                  href={url}
+                  aria-label={`${COMPANY_NAME} ${name}`}
                   style={{
                     border: "1px solid rgba(255,255,255,0.18)",
                     borderRadius: "999px",
                     padding: "8px 12px",
                     color: "#cbd5e1",
                     fontSize: "13px",
+                    textDecoration: "none",
+                    textTransform: "capitalize",
                   }}
                 >
-                  {item}
-                </span>
+                  {name}
+                </a>
               ))}
             </div>
           </div>
 
           <div>
             <h4 style={{ marginTop: 0 }}>Services</h4>
-            {services.map((service) => (
+            {FEATURED_SERVICES.map((service) => (
               <p
                 key={service}
                 style={{
@@ -102,7 +98,7 @@ export default function Footer() {
 
           <div>
             <h4 style={{ marginTop: 0 }}>Service Areas</h4>
-            {areas.map((area) => (
+            {FEATURED_SERVICE_AREAS.map((area) => (
               <p
                 key={area}
                 style={{
@@ -117,11 +113,10 @@ export default function Footer() {
 
           <div>
             <h4 style={{ marginTop: 0 }}>Contact Information</h4>
-            <p style={{ color: "#cbd5e1" }}>📞 8777732521</p>
-            <p style={{ color: "#cbd5e1" }}>📧 info@samapravah.com</p>
+            <p style={{ color: "#cbd5e1" }}>📞 {formatPhone(PHONE)}</p>
+            <p style={{ color: "#cbd5e1" }}>📧 {EMAIL}</p>
             <p style={{ color: "#cbd5e1", lineHeight: "1.7" }}>
-              Serving Kolkata, North Kolkata, Salt Lake, New Town, and nearby
-              localities.
+              {COMPANY_ADDRESS}
             </p>
           </div>
         </div>
@@ -141,7 +136,7 @@ export default function Footer() {
             margin: 0,
           }}
         >
-          © {new Date().getFullYear()} Sama Pravah. All rights reserved.
+          © {new Date().getFullYear()} {COMPANY_NAME}. All rights reserved.
         </p>
       </footer>
     </>

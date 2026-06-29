@@ -1,6 +1,9 @@
 import { useState } from "react";
 import { saveBooking } from "../firebase/bookings";
 import { useApp, VIEWS } from "../context/AppContext";
+import { WEBSITE_BOOKING_AREAS } from "../constants/areas";
+import { FEATURED_SERVICES } from "../constants/services";
+import { BOOKING_STATUS } from "../constants/status";
 
 export default function WebsiteBookingPage() {
     const { navigate } = useApp();
@@ -45,7 +48,7 @@ export default function WebsiteBookingPage() {
 
       description: "",
 
-      status: "Pending",
+      status: BOOKING_STATUS.PENDING,
     };
 
     try {
@@ -94,63 +97,77 @@ export default function WebsiteBookingPage() {
       <p>Fill the form below and our technician will contact you shortly.</p>
 
       <div style={{ marginTop: "30px" }}>
-        <label>Service</label>
+        <label htmlFor="website-service">Service</label>
         <select
+          id="website-service"
           value={form.service}
           onChange={(e) => update("service", e.target.value)}
           style={inputStyle}
+          required
+          aria-required="true"
         >
           <option value="">Select Service</option>
-          <option>Electrical</option>
-          <option>Plumbing</option>
-          <option>AC Repair</option>
-          <option>Cleaning</option>
-          <option>Carpenter</option>
-          <option>CCTV</option>
+          {FEATURED_SERVICES.map((service) => (
+            <option key={service}>{service}</option>
+          ))}
         </select>
 
-        <label>Name</label>
+        <label htmlFor="website-name">Name</label>
         <input
+          id="website-name"
           value={form.name}
           onChange={(e) => update("name", e.target.value)}
           style={inputStyle}
+          required
+          aria-required="true"
+          autoComplete="name"
         />
 
-        <label>Mobile</label>
+        <label htmlFor="website-mobile">Mobile</label>
         {/* STEP 3 — Add Mobile Validation */}
         <input
+          id="website-mobile"
+          type="tel"
           value={form.mobile}
           maxLength={10}
           onChange={(e) => update("mobile", e.target.value.replace(/\D/g, ""))}
           style={inputStyle}
+          required
+          aria-required="true"
+          inputMode="numeric"
+          autoComplete="tel"
         />
 
-        <label>Area</label>
+        <label htmlFor="website-area">Area</label>
         <select
+          id="website-area"
           value={form.area}
           onChange={(e) => update("area", e.target.value)}
           style={inputStyle}
         >
           <option value="">Select Area</option>
-          <option>Lake Town</option>
-          <option>Bangur</option>
-          <option>Salt Lake</option>
-          <option>Baguiati</option>
-          <option>New Town</option>
+          {WEBSITE_BOOKING_AREAS.map((area) => (
+            <option key={area}>{area}</option>
+          ))}
         </select>
 
-        <label>Address</label>
+        <label htmlFor="website-address">Address</label>
         <textarea
+          id="website-address"
           value={form.address}
           onChange={(e) => update("address", e.target.value)}
           style={{
             ...inputStyle,
             height: "120px",
           }}
+          required
+          aria-required="true"
+          autoComplete="street-address"
         />
 
-        <label>Preferred Date</label>
+        <label htmlFor="website-date">Preferred Date</label>
         <input
+          id="website-date"
           type="date"
           value={form.date}
           onChange={(e) => update("date", e.target.value)}
@@ -158,6 +175,7 @@ export default function WebsiteBookingPage() {
         />
 
         <button
+          type="button"
           onClick={submit}
           style={{
             marginTop: "25px",

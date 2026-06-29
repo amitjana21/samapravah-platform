@@ -1,3 +1,5 @@
+import { STARTING_PRICES } from "../../constants/services";
+
 export default function WhyChooseUs() {
   return (
     <>
@@ -68,14 +70,7 @@ export default function WhyChooseUs() {
             gap: "20px",
           }}
         >
-          {[
-            ["⚡ Electrical Visit", "₹299"],
-            ["🚰 Plumbing Visit", "₹299"],
-            ["❄️ AC Service", "₹499"],
-            ["🧹 Deep Cleaning", "₹699"],
-            ["🪚 Carpenter Visit", "₹299"],
-            ["📹 CCTV Installation", "₹999"],
-          ].map(([service, price]) => (
+          {STARTING_PRICES.map(([service, price]) => (
             <div
               key={service}
               className="website-card-hover"

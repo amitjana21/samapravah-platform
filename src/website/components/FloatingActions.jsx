@@ -1,8 +1,8 @@
-export default function FloatingActions() {
-  const scrollToTop = () => {
-    window.scrollTo({ top: 0, behavior: "smooth" });
-  };
+import { PHONE, WHATSAPP_NUMBER } from "../../config/appConfig";
+import { getTelUrl, getWhatsAppUrl } from "../../utils/formatPhone";
+import { scrollToTop } from "../../utils/scrollToTop";
 
+export default function FloatingActions() {
   const actionStyle = {
     width: "52px",
     height: "52px",
@@ -33,7 +33,7 @@ export default function FloatingActions() {
     >
       <a
         className="website-action-hover"
-        href="https://wa.me/918777732521"
+        href={getWhatsAppUrl(WHATSAPP_NUMBER)}
         target="_blank"
         rel="noreferrer"
         aria-label="WhatsApp Sama Pravah"
@@ -47,7 +47,7 @@ export default function FloatingActions() {
 
       <a
         className="website-action-hover"
-        href="tel:8777732521"
+        href={getTelUrl(PHONE)}
         aria-label="Call Sama Pravah"
         style={{
           ...actionStyle,

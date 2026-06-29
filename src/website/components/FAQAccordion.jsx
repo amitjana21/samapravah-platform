@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { SERVICE_AREAS } from "../../config/appConfig";
 
 export default function FAQAccordion() {
   const [openIndex, setOpenIndex] = useState(0);
@@ -22,7 +23,7 @@ export default function FAQAccordion() {
     ],
     [
       "Areas covered",
-      "We currently cover Lake Town, Bangur, Salt Lake, New Town, Baguiati, Dum Dum, Kestopur, Nagerbazar, and nearby areas.",
+      `We currently cover ${SERVICE_AREAS.join(", ")}, and nearby areas.`,
     ],
     [
       "Payment methods",
@@ -87,6 +88,8 @@ export default function FAQAccordion() {
               <button
                 type="button"
                 onClick={() => setOpenIndex(isOpen ? -1 : index)}
+                aria-expanded={isOpen}
+                aria-controls={`faq-panel-${index}`}
                 style={{
                   width: "100%",
                   border: "none",
@@ -117,6 +120,7 @@ export default function FAQAccordion() {
 
               {isOpen && (
                 <p
+                  id={`faq-panel-${index}`}
                   style={{
                     margin: 0,
                     padding: "0 20px 20px",

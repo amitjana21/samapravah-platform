@@ -1,4 +1,6 @@
-// STEP 1 — Logo Import
+import { COMPANY_NAME, PHONE, SUPPORT_HOURS } from "../../config/appConfig";
+import { formatPhone } from "../../utils/formatPhone";
+import { scrollToTop } from "../../utils/scrollToTop";
 import logo from "../../assets/logo.png";
 
 export default function Navbar() {
@@ -32,11 +34,21 @@ export default function Navbar() {
               gap: "12px",
               cursor: "pointer"
             }}
-            onClick={() => window.scrollTo(0, 0)}
+            onClick={scrollToTop}
+            onKeyDown={(event) => {
+              if (event.key === "Enter" || event.key === " ") {
+                event.preventDefault();
+                scrollToTop();
+              }
+            }}
+            role="button"
+            tabIndex={0}
+            aria-label="Scroll to top"
           >
             <img
               src={logo}
-              alt="Sama Pravah"
+              alt={`${COMPANY_NAME} logo`}
+              loading="lazy"
               style={{
                 height: "50px",
                 width: "50px",
@@ -52,7 +64,7 @@ export default function Navbar() {
                   color: "#2563eb",
                 }}
               >
-                Sama Pravah
+                {COMPANY_NAME}
               </div>
 
               <div
@@ -93,8 +105,9 @@ export default function Navbar() {
           fontWeight: "600",
         }}
       >
-        📞 Call: 8777732521 &nbsp;&nbsp; | &nbsp;&nbsp;
-        💬 WhatsApp Support Available
+        📞 Call: {formatPhone(PHONE)} &nbsp;&nbsp; | &nbsp;&nbsp;
+        💬 WhatsApp Support Available &nbsp;&nbsp; | &nbsp;&nbsp;
+        {SUPPORT_HOURS}
       </div>
     </>
   );

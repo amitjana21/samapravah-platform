@@ -1,4 +1,5 @@
-// STEP 1 — Logo Import
+import { COMPANY_NAME, WHATSAPP_NUMBER } from "../../config/appConfig";
+import { getWhatsAppUrl } from "../../utils/formatPhone";
 import logo from "../../assets/logo.png";
 
 export default function Hero({ onBookService, onTrackBooking }) {
@@ -17,7 +18,8 @@ export default function Hero({ onBookService, onTrackBooking }) {
         {/* STEP 2 — Logo in Hero Section */}
         <img
           src={logo}
-          alt="Sama Pravah"
+          alt={`${COMPANY_NAME} logo`}
+          loading="lazy"
           style={{
             width: "140px",
             marginBottom: "20px",
@@ -31,7 +33,7 @@ export default function Hero({ onBookService, onTrackBooking }) {
             marginBottom: "20px",
           }}
         >
-          Sama Pravah
+          {COMPANY_NAME}
         </h1>
 
         <h2 style={{ fontSize: "28px", marginBottom: "15px" }}>Trusted Home Services At Your Doorstep</h2>
@@ -43,6 +45,8 @@ export default function Hero({ onBookService, onTrackBooking }) {
           <button
             className="website-action-hover"
             onClick={onBookService}
+            type="button"
+            aria-label="Book a Sama Pravah home service"
             style={{
               padding: "14px 24px",
               borderRadius: "10px",
@@ -59,6 +63,8 @@ export default function Hero({ onBookService, onTrackBooking }) {
           <button
             className="website-action-hover"
             onClick={onTrackBooking}
+            type="button"
+            aria-label="Track your Sama Pravah booking"
             style={{
               padding: "14px 24px",
               borderRadius: "10px",
@@ -74,9 +80,10 @@ export default function Hero({ onBookService, onTrackBooking }) {
 
           <a
             className="website-action-hover"
-            href="https://wa.me/918777732521"
+            href={getWhatsAppUrl(WHATSAPP_NUMBER)}
             target="_blank"
             rel="noreferrer"
+            aria-label="Chat with Sama Pravah on WhatsApp"
             style={{
               padding: "14px 24px",
               borderRadius: "10px",
